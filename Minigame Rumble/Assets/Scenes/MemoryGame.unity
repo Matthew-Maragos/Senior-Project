@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1093387853}
   - component: {fileID: 1093387854}
+  - component: {fileID: 1093387855}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -146,7 +147,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.02, y: 0.9549548, z: 0.03329787}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -205,13 +206,25 @@ MonoBehaviour:
   - {fileID: 6253231516802088795, guid: fc656e88e57e140178d9efe5d91112c5, type: 3}
   - {fileID: -2621730384546761623, guid: d0af177c6d1c749d5a9f08d487be0c60, type: 3}
   - {fileID: -3066867260099323197, guid: 0842ff4aa10034d14adf0776e6f1d6cc, type: 3}
-  box: {fileID: 1621061201687782760, guid: 41a894ec838c743f4a0d312f493c7292, type: 3}
+  box: {fileID: 1456970370103253343, guid: af33bf120a2c6421ca310efe690126d1, type: 3}
   XSpace: 2
   YSpace: 2
-  minWidth: 0.05
-  minHeight: 0.05
-  maxWidth: 0.9
+  minWidth: 0.1
+  minHeight: 0.1
+  maxWidth: 1
   maxHeight: 0.9
+--- !u!114 &1093387855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093387851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8cefbe6b19849d5b356e7ea898dd40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1590353820
 GameObject:
   m_ObjectHideFlags: 0

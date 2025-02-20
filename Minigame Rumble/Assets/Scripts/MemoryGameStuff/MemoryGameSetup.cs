@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Random = Unity.Mathematics.Random;
 
-public class BoxClicker : MonoBehaviour
+public class MemoryGameSetup : MonoBehaviour
 {
     public Sprite[] numberSprites;
     public List<Sprite> imageSprites;
@@ -46,6 +46,7 @@ public class BoxClicker : MonoBehaviour
             //Set the images for the back of the boxes
             SpriteRenderer image = newBox.transform.GetChild(0).GetComponent<SpriteRenderer>();
             image.sprite = imageSprites[i];
+            image.sortingOrder = -1;
             
             //Calculate the sprite's original dimensions (in world units)
             float spriteWidth = image.sprite.bounds.size.x;
@@ -63,7 +64,6 @@ public class BoxClicker : MonoBehaviour
             //Apply the uniform scale so that we preserve the sprite's aspect ratio
             image.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1);
             
-            Debug.Log("Box " + (i + 1) + " has " + image.sprite.name);
             
         }
     }
