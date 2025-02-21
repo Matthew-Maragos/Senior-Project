@@ -5,17 +5,27 @@ using UnityEngine;
 
 public class BoxHandler : MonoBehaviour
 {
-    private GameObject box;
+    [SerializeField] private GameObject box;
     private bool isAvaliable;
-    private SpriteRenderer image;
-
+    public SpriteRenderer image;
     private List<GameObject> chosenBoxes;
+    public MemoryGameLogic thelogic;
+
+    public Vector3 origScale;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       box = this.gameObject; 
-       image = box.transform.GetChild(0).GetComponent<SpriteRenderer>();
-       isAvaliable = true;
+        isAvaliable = true;
+        if (thelogic == null)
+        {
+            thelogic = FindAnyObjectByType<MemoryGameLogic>();
+        }
+
+        if (transform.childCount > 0)
+        {
+            image = transform.GetChild(0).GetComponent<SpriteRenderer>();
+            origScale = image.transform.localScale;
+        }
     }
 
     // Update is called once per frame
@@ -28,30 +38,14 @@ public class BoxHandler : MonoBehaviour
     {
         if (isAvaliable)
         {
-            ShowImage();
-            chosenBoxes.Add(box);
+            thelogic.BoxClicked(this.gameObject);
             isAvaliable = !isAvaliable;
         }
         
     }
-    
 
-    public void EmptyChosenItemsList()
+    public void ResetAvaliability()
     {
-        chosenBoxes.Clear();
-    }
-
-    public List<GameObject> GetChosenItems()
-    {
-        return chosenBoxes;
-    }
-    public void ShowImage()
-    {
-        image.sortingOrder = 1;
-    }
-    public void ResetBox()
-    {
-        image.sortingOrder = -1;
         isAvaliable = true;
     }
     

@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
-using Random = Unity.Mathematics.Random;
+using Random = UnityEngine.Random;
 
 public class MemoryGameSetup : MonoBehaviour
 {
@@ -13,18 +12,26 @@ public class MemoryGameSetup : MonoBehaviour
     private float initX = -8;
     private float initY = 4;
     private int colLength = 5;
+    
+    //Min and max widths and heights for the image
     [SerializeField] private float XSpace;
     [SerializeField] private float YSpace;
     [SerializeField] private float minWidth;
     [SerializeField] private float minHeight;
     [SerializeField] private float maxWidth;
     [SerializeField] private float maxHeight;
+    
+    //Variables for expanding and contraction of the image
+    [SerializeField] private float expansionMultiplier = 1.5f;
+    [SerializeField] private float expansionDuration = 0.5f;
+    [SerializeField] private float contractionDuration = 0.5f;
+    
     private int numBoxes = 20;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     { 
         SpawnBoxes();
-        
     }
 
     // Update is called once per frame
@@ -37,6 +44,7 @@ public class MemoryGameSetup : MonoBehaviour
     {
         for (int i = 0; i < numBoxes; i++)
         { 
+            int randImageIndx = Random.Range(0, imageSprites.Count);
             GameObject newBox = Instantiate(box, new Vector3(initX + (XSpace * (i % colLength)), initY + (-YSpace * (i / colLength)), 0), Quaternion.identity);
             
             //Set the numbers for the front of the boxes
@@ -45,8 +53,9 @@ public class MemoryGameSetup : MonoBehaviour
             
             //Set the images for the back of the boxes
             SpriteRenderer image = newBox.transform.GetChild(0).GetComponent<SpriteRenderer>();
-            image.sprite = imageSprites[i];
+            image.sprite = imageSprites[randImageIndx];
             image.sortingOrder = -1;
+            imageSprites.RemoveAt(randImageIndx);
             
             //Calculate the sprite's original dimensions (in world units)
             float spriteWidth = image.sprite.bounds.size.x;
@@ -64,8 +73,27 @@ public class MemoryGameSetup : MonoBehaviour
             //Apply the uniform scale so that we preserve the sprite's aspect ratio
             image.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1);
             
-            
         }
+        
     }
-    
+
+    public int GetNumBoxes()
+    {
+        return numBoxes;
+    }
+
+    public float GetExpansionDuration()
+    {
+        return expansionDuration;
+    }
+
+    public float GetExpansionMultiplier()
+    {
+        return expansionMultiplier;
+    }
+
+    public float GetContractionDuration()
+    {
+        return contractionDuration;
+    }
 }
