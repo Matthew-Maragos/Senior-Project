@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MemoryGame.unity
     guid: 97be0db73b6f145ae8f81d0adeaea415
+  - enabled: 1
+    path: Assets/Scenes/CreditsScene.unity
+    guid: 8b68562409537411885964e490c77f97
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
