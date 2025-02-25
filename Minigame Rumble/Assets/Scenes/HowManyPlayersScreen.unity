@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MinigameRoyale
+  m_text: HowManyPlayers
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6ddc8f7e0781d41a6a9d1e00667d3b99, type: 2}
   m_sharedMaterial: {fileID: 1008267716484972605, guid: 6ddc8f7e0781d41a6a9d1e00667d3b99, type: 2}
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -78.847046, y: 0, z: -949.9148, w: -154.41586}
+  m_margin: {x: -258.23517, y: 0, z: -1132.6248, w: -154.41586}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -703,7 +703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2484247511884558736, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2484247511884558736, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -735,13 +735,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6584356117381108549, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_text
-      value: 'Credits
-
-'
+      value: 4 Players
       objectReference: {fileID: 0}
     - target: {fileID: 7047139808986359734, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_Name
-      value: Credits Button
+      value: 4 Player Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -847,7 +845,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2484247511884558736, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2484247511884558736, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -859,11 +857,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2484247511884558736, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitGame
+      value: LoadScene
       objectReference: {fileID: 0}
     - target: {fileID: 2484247511884558736, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SceneNavigator, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484247511884558736, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: MenuScreen
       objectReference: {fileID: 0}
     - target: {fileID: 2484247511884558736, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -871,11 +873,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6584356117381108549, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_text
-      value: Quit Game
+      value: Back
       objectReference: {fileID: 0}
     - target: {fileID: 7047139808986359734, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_Name
-      value: Quit Game Button
+      value: Back to Menu Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1021,7 +1023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2484247511884558736, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2484247511884558736, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1045,7 +1047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2484247511884558736, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: OptionsScreen
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2484247511884558736, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1053,11 +1055,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6584356117381108549, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_text
-      value: Options
+      value: 3 Players
       objectReference: {fileID: 0}
     - target: {fileID: 7047139808986359734, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_Name
-      value: Options Button
+      value: 3 Player Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1157,9 +1159,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6584356117381108549, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: m_text
+      value: 2 Players
+      objectReference: {fileID: 0}
     - target: {fileID: 7047139808986359734, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_Name
-      value: Start Game Button
+      value: 2 Player Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

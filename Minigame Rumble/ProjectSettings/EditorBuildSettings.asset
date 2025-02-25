@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CreditsScene.unity
     guid: 8b68562409537411885964e490c77f97
+  - enabled: 1
+    path: Assets/Scenes/HowManyPlayersScreen.unity
+    guid: 22141eaea5dba44dfa095fa1068c5fc7
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
