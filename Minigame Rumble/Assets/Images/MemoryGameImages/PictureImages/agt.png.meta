@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 07d3e373c6f46426d904f5cca34bc55e
+guid: d35b4f762cd304e73ae4deb54cf795b7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8321750647888322843
-    second: shreyaghoshal_0
+      213: -5315706737125101300
+    second: agt_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shreyaghoshal_0
+      name: agt_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 135
         y: 0
-        width: 207
-        height: 244
+        width: 360
+        height: 360
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ee5d3350e3338c80800000000000000
-      internalID: -8321750647888322843
+      spriteID: c01f18be2e0da36b0800000000000000
+      internalID: -5315706737125101300
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 929fc5b64ba8d4ad1ad659136a90399e
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      shreyaghoshal_0: -8321750647888322843
+      agt_0: -5315706737125101300
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

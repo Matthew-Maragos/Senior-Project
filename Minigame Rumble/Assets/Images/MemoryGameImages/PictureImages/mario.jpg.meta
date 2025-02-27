@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: db680f23072084eada6264db46e3931b
+guid: b71e8f3c1bb364426b822cad4414b78f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4758699170915923330
-    second: amitabhbacchan_0
+      213: -4604146857013224401
+    second: mario_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: amitabhbacchan_0
+      name: mario_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 192
-        height: 263
+        width: 225
+        height: 225
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e7a4c941154b5fdb0800000000000000
-      internalID: -4758699170915923330
+      spriteID: f2cdefdc3d8ca10c0800000000000000
+      internalID: -4604146857013224401
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8ff610f7710cf4f85852bf7512bd6f18
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      amitabhbacchan_0: -4758699170915923330
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d0af177c6d1c749d5a9f08d487be0c60
+guid: 9c3f238c6897d408a983927617e2722c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2621730384546761623
-    second: wysteria_0
+      213: 3209593218065287220
+    second: streyaghoshal_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wysteria_0
+      name: streyaghoshal_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 211
-        height: 239
+        width: 180
+        height: 179
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 964fd341b1ebd9bd0800000000000000
-      internalID: -2621730384546761623
+      spriteID: 438c844d604ca8c20800000000000000
+      internalID: 3209593218065287220
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      wysteria_0: -2621730384546761623
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
