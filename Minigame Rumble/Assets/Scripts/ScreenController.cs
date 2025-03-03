@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class SceneNavigator : MonoBehaviour
+public class ScreenController : MonoBehaviour
 {
     public void LoadScene(string sceneName)
     {

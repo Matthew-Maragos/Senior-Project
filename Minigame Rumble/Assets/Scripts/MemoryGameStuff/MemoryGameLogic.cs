@@ -5,38 +5,42 @@ using UnityEngine.UIElements;
 
 public class MemoryGameLogic : MonoBehaviour
 {
+    public ScreenController sceneNavigator;
     public MemoryGameSetup thesetup;
-    public List<GameObject> chosenBoxes = new List<GameObject>();
+    public List<BoxHandler> chosenBoxes = new List<BoxHandler>();
     private int numMatches;
+    private bool canClick;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        canClick = true;
         numMatches = 0;
         thesetup = FindAnyObjectByType<MemoryGameSetup>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     public void BoxClicked(GameObject box)
     {
-        var imageTransform = box.transform.GetChild(0);
-        BoxHandler bh = box.GetComponent<BoxHandler>();
-
-        Vector3 targetScale = bh.origScale * thesetup.GetExpansionMultiplier();
-        
-        StartCoroutine(AnimateScale(imageTransform, imageTransform.localScale, targetScale, thesetup.GetExpansionDuration()));
-
-        imageTransform.GetComponent<SpriteRenderer>().sortingOrder = 1;
-            
-        chosenBoxes.Add(box);
-
-        if (chosenBoxes.Count == 2)
+        //Flag so that users don't click on more than two boxes at a time
+        if (canClick)
         {
-            StartCoroutine(DelayedCheckMatch());
+            //When a box is clicked, trigger the growing animation and add the box to the chosenBoxes list
+            BoxHandler bh = box.GetComponent<BoxHandler>();
+            SpriteRenderer imageRenderer = bh.GetImageRenderer();
+
+            Vector3 targetScale = bh.origScale * thesetup.GetExpansionMultiplier();
+        
+            chosenBoxes.Add(bh);
+        
+            StartCoroutine(AnimateScale(imageRenderer.transform, imageRenderer.transform.localScale, targetScale, thesetup.GetExpansionDuration()));
+
+            imageRenderer.sortingOrder = 2;
+        
+            if (chosenBoxes.Count == 2)
+            {
+                //After a second wait, check for a match
+                canClick = false;
+                StartCoroutine(DelayedCheckMatch());
+            }
         }
     }
 
@@ -48,6 +52,7 @@ public class MemoryGameLogic : MonoBehaviour
 
     private IEnumerator AnimateScale(Transform target, Vector3 startScale, Vector3 endScale, float duration)
     {
+        //Logic for animating the image
         float time = 0f;
         while (time < duration)
         {
@@ -60,36 +65,42 @@ public class MemoryGameLogic : MonoBehaviour
 
     public void CheckMatch()
     {
-        SpriteRenderer firstimagename = chosenBoxes[0].transform.GetChild(0).GetComponent<SpriteRenderer>();
-        SpriteRenderer secondimagename = chosenBoxes[1].transform.GetChild(0).GetComponent<SpriteRenderer>();
+        //Logic for checking to see if you have a match
+        BoxHandler bxhndlr1 = chosenBoxes[0];
+        BoxHandler bxhndlr2 = chosenBoxes[1];
+        
+        SpriteRenderer firstRenderer = bxhndlr1.GetImageRenderer();
+        SpriteRenderer secondRenderer = bxhndlr2.GetImageRenderer();
 
-        if (firstimagename.sprite == secondimagename.sprite)
+        if (firstRenderer.sprite == secondRenderer.sprite)
         {
+            //You found a match
             numMatches++;
-            Debug.Log("It's a match!!");
             CheckForWin();
+            canClick = true;
         }
         else
         {
-            foreach (GameObject box in chosenBoxes)
+            //Not a match
+            //Logic for shrinking the image back to its original position
+            foreach (BoxHandler bh in chosenBoxes)
             {
-                var imageTransform = box.transform.GetChild(0);
-                BoxHandler bh = box.GetComponent<BoxHandler>();
+                Transform imageTransform = bh.GetChildTransform();
                 StartCoroutine(AnimateScale(imageTransform, imageTransform.localScale, bh.origScale, thesetup.GetContractionDuration()));
-                box.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = -1;
-                box.GetComponent<BoxHandler>().ResetAvaliability();
+                bh.GetImageRenderer().sortingOrder = -2;
+                bh.ResetAvaliability();
             }
         }
         chosenBoxes.Clear();
+        canClick = true;
     }
-
-   
-
     public void CheckForWin()
     {
-        if (numMatches == thesetup.GetNumBoxes()/2)
+        int numBoxes = thesetup.GetNumBoxes();
+        if (numMatches == numBoxes/2)
         {
-            Debug.Log("You win!");
+            //Placeholder for moving to the next scene when the memory game is finished
+            sceneNavigator.LoadScene("EndScene");
         }
     }
 }
