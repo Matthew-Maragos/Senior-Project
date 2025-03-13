@@ -20,5 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HowManyPlayersScreen.unity
     guid: 22141eaea5dba44dfa095fa1068c5fc7
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: f43ff27c283af42ad8d51896686acc19, type: 3}
   m_UseUCBPForAssetBundles: 0
