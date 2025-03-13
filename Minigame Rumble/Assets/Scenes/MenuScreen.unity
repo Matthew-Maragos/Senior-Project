@@ -119,6 +119,21 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &2278747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6957663219039017232, guid: 809671611a72d471992d7d6180767258, type: 3}
+  m_PrefabInstance: {fileID: 4895330763680363544}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &215593671 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2073865474341704241, guid: 809671611a72d471992d7d6180767258, type: 3}
+  m_PrefabInstance: {fileID: 1384429563}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &282906659 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6957663219039017232, guid: 809671611a72d471992d7d6180767258, type: 3}
+  m_PrefabInstance: {fileID: 1332648572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &338201671
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,6 +273,11 @@ CanvasRenderer:
 --- !u!1 &401318370 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7047139808986359734, guid: 809671611a72d471992d7d6180767258, type: 3}
+  m_PrefabInstance: {fileID: 4895330763680363544}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &460491920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2073865474341704241, guid: 809671611a72d471992d7d6180767258, type: 3}
   m_PrefabInstance: {fileID: 4895330763680363544}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
@@ -444,6 +464,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1972474260571836644, guid: 809671611a72d471992d7d6180767258, type: 3}
   m_PrefabInstance: {fileID: 4895330763680363544}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1003608178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6957663219039017232, guid: 809671611a72d471992d7d6180767258, type: 3}
+  m_PrefabInstance: {fileID: 1384429563}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1097367024
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,6 +654,16 @@ MonoBehaviour:
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
   m_ScrollDeltaPerTick: 6
+--- !u!1 &1217950857 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2073865474341704241, guid: 809671611a72d471992d7d6180767258, type: 3}
+  m_PrefabInstance: {fileID: 2045177671}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1278662832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2073865474341704241, guid: 809671611a72d471992d7d6180767258, type: 3}
+  m_PrefabInstance: {fileID: 1332648572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1332648572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -759,6 +794,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Credits Button
       objectReference: {fileID: 0}
+    - target: {fileID: 7542101075414234809, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: highlightImage
+      value: 
+      objectReference: {fileID: 1278662832}
+    - target: {fileID: 7542101075414234809, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: highlightImage2
+      value: 
+      objectReference: {fileID: 282906659}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -893,6 +936,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Quit Game Button
       objectReference: {fileID: 0}
+    - target: {fileID: 7542101075414234809, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: highlightImage
+      value: 
+      objectReference: {fileID: 215593671}
+    - target: {fileID: 7542101075414234809, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: highlightImage2
+      value: 
+      objectReference: {fileID: 1003608178}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -947,6 +998,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1915236230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6957663219039017232, guid: 809671611a72d471992d7d6180767258, type: 3}
+  m_PrefabInstance: {fileID: 2045177671}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2045177671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1075,6 +1131,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Options Button
       objectReference: {fileID: 0}
+    - target: {fileID: 7542101075414234809, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: highlightImage
+      value: 
+      objectReference: {fileID: 1217950857}
+    - target: {fileID: 7542101075414234809, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: highlightImage2
+      value: 
+      objectReference: {fileID: 1915236230}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1173,6 +1237,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2073865474341704241, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2484247511884558736, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1205,10 +1273,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6957663219039017232, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7047139808986359734, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_Name
       value: Start Game Button
       objectReference: {fileID: 0}
+    - target: {fileID: 7542101075414234809, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: highlightImage
+      value: 
+      objectReference: {fileID: 460491920}
+    - target: {fileID: 7542101075414234809, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: highlightImage2
+      value: 
+      objectReference: {fileID: 2278747}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
