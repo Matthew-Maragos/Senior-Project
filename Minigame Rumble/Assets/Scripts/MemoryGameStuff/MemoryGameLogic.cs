@@ -16,7 +16,6 @@ public class MemoryGameLogic : MonoBehaviour
         canClick = true;
         numMatches = 0;
         thesetup = FindAnyObjectByType<MemoryGameSetup>();
-        sceneNavigator = FindAnyObjectByType<ScreenController>();
     }
     
     public void BoxClicked(GameObject box)
