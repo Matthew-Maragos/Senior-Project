@@ -100,7 +100,7 @@ public class MemoryGameLogic : MonoBehaviour
         if (numMatches == numBoxes/2)
         {
             //Placeholder for moving to the next scene when the memory game is finished
-            sceneNavigator.LoadScene("EndScene");
+            sceneNavigator.LoadScene(7);
         }
     }
 }

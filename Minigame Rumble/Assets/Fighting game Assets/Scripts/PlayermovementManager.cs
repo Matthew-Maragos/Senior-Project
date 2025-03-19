@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMovementManager : MonoBehaviour
 {
@@ -8,12 +9,13 @@ public class PlayerMovementManager : MonoBehaviour
     private bool isGrounded;
     private bool isAttacking;
     private bool attackToggle;
-
+    public LayerMask enemyLayer;
     public float moveSpeed = 3f;
     public float jumpForce = 5f;
     public Transform groundCheck;
     public LayerMask groundLayer;
     private Vector3 originalScale;
+    public GameObject attackHitbox;
 
     void Start()
     {
@@ -29,13 +31,11 @@ public class PlayerMovementManager : MonoBehaviour
     void Update()
     {
         HandleInput();
-        AnimatePlayer();
     }
 
     void FixedUpdate()
     {
         MovePlayer();
-        CheckGroundStatus();
     }
 
     private void HandleInput()
@@ -45,28 +45,54 @@ public class PlayerMovementManager : MonoBehaviour
         // Jump input
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            isGrounded = false;
-            Debug.Log("Is Ground....!  "+isGrounded);
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            anim.SetTrigger("Jump");
+            isGrounded = false;
         }
 
         // Attack input (One button for both Attack1 & Attack2)
-        if (Input.GetButtonDown("Fire1") && !isAttacking)
+        if (Input.GetButtonDown("Fire1") && !isAttacking && !IsPointerOverUI())
         {
             isAttacking = true;
             attackToggle = !attackToggle;
 
             anim.SetTrigger(attackToggle ? "Attack1" : "Attack2");
-
+            PerformAttackClientRpc();
             Invoke(nameof(ResetAttack), 0.4f); // Reset attack after animation
         }
+       
+    }
+    bool IsPointerOverUI()
+    {
+        return EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
+    }
+    void PerformAttackClientRpc()
+    {
+        attackHitbox.SetActive(true);
+        Invoke(nameof(DisableHitbox), 0.3f); // Auto-disable after attack
+    }
+
+    void DisableHitbox()
+    {
+        attackHitbox.SetActive(false);
     }
 
     private void MovePlayer()
     {
         if (isAttacking) return; // Don't move when attacking
 
-        rb.linearVelocity = new Vector2(movementInput.x * moveSpeed, rb.linearVelocity.y); // Instant movement
+        // Move player
+        rb.linearVelocity = new Vector2(movementInput.x * moveSpeed, rb.linearVelocity.y);
+
+        // Play animations based on movement
+        if (movementInput.x != 0)
+        {
+            anim.SetTrigger("Run");
+        }
+        else
+        {
+            anim.SetTrigger("Idle");
+        }
 
         // Flip character direction
         if (movementInput.x > 0)
@@ -75,38 +101,37 @@ public class PlayerMovementManager : MonoBehaviour
             transform.localScale = new Vector3(-originalScale.x, originalScale.y, originalScale.z);
     }
 
-    private void AnimatePlayer()
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        if (isAttacking) return; // Don't change animation when attacking
-
-        bool isMoving = Mathf.Abs(movementInput.x) > 0.1f;
-
-        anim.ResetTrigger("Idle");
-        anim.ResetTrigger("Run");
-        anim.ResetTrigger("Jump");
-
-        // Play animations instantly
-        if (!isGrounded)
+        if (col.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
-            anim.SetTrigger("Jump");
+            isGrounded = true;
         }
-        else if (isMoving)
+        if (((1 << col.gameObject.layer) & enemyLayer) != 0)
         {
-            anim.SetTrigger("Run");
-        }
-        else
-        {
-            anim.SetTrigger("Idle");
+            Debug.Log("Hit Enemy: " + col.gameObject.name);
+            // Apply damage function here
         }
     }
 
-    private void CheckGroundStatus()
+    private void OnCollisionExit2D(Collision2D col)
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.08f, groundLayer);
+        if (col.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            isGrounded = false;
+        }
     }
 
     private void ResetAttack()
     {
         isAttacking = false;
+    }
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("enemydead....!");
+            col.gameObject.SetActive(false);
+        }
     }
 }

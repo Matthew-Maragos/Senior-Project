@@ -20,6 +20,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HowManyPlayersScreen.unity
     guid: 22141eaea5dba44dfa095fa1068c5fc7
+  - enabled: 1
+    path: Assets/Scenes/Parkour game.unity
+    guid: 12deb5f1c7d0dd74d998fbd2af19161b
+  - enabled: 1
+    path: Assets/Scenes/Fightinggame.unity
+    guid: 3cc0a44109a82ad4bba79763022f5fd8
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: 82711ab492de44dbc8b9595979ed69d2
+  - enabled: 1
+    path: Assets/Scenes/BothGamesScene.unity
+    guid: 8b2436661cce03b48aa04f776559b324
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c1e36d7ce2ca746619ed0ecc738e1aa1, type: 3}
   m_UseUCBPForAssetBundles: 0
