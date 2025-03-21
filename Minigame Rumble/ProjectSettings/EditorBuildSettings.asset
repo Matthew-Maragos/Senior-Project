@@ -17,9 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CreditsScene.unity
     guid: 8b68562409537411885964e490c77f97
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/HowManyPlayersScreen.unity
     guid: 22141eaea5dba44dfa095fa1068c5fc7
+  - enabled: 1
+    path: Assets/Scenes/HowManyPlayersScene.unity
+    guid: a6ef8770bc0534edfb7510079f6d9cb8
   - enabled: 1
     path: Assets/Scenes/Parkour game.unity
     guid: 12deb5f1c7d0dd74d998fbd2af19161b

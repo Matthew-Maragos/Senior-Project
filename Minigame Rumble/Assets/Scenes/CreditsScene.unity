@@ -589,7 +589,10 @@ MonoBehaviour:
 
     Matthew Maragos
 
-    Sagar Mathur'
+    Sagar Mathur
+
+    Soojal
+    Kumar'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
@@ -720,6 +723,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2142730981}
     m_Modifications:
+    - target: {fileID: 1239954681557990347, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 187
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239954681557990347, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1972474260571836644, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -786,7 +797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1972474260571836644, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 84
+      value: 139
       objectReference: {fileID: 0}
     - target: {fileID: 1972474260571836644, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -798,6 +809,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1972474260571836644, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073865474341704241, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2484247511884558736, guid: 809671611a72d471992d7d6180767258, type: 3}
@@ -836,9 +851,21 @@ PrefabInstance:
       propertyPath: m_text
       value: Back
       objectReference: {fileID: 0}
+    - target: {fileID: 6957663219039017232, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7047139808986359734, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_Name
       value: Back Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459096395693182696, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -223
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459096395693182696, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7542101075414234809, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: highlightImage
