@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 using UnityEngine.UIElements;
+using Vector3 = UnityEngine.Vector3;
 
 public class MemoryGameLogic : MonoBehaviour
 {
@@ -18,6 +20,11 @@ public class MemoryGameLogic : MonoBehaviour
         thesetup = FindAnyObjectByType<MemoryGameSetup>();
     }
     
+    public void AnimateScaleTween(Transform target, Vector3 endScale, float duration)
+    {
+        target.DOScale(endScale, duration);
+    }
+    
     public void BoxClicked(GameObject box)
     {
         //Flag so that users don't click on more than two boxes at a time
@@ -27,11 +34,13 @@ public class MemoryGameLogic : MonoBehaviour
             BoxHandler bh = box.GetComponent<BoxHandler>();
             SpriteRenderer imageRenderer = bh.GetImageRenderer();
 
-            Vector3 targetScale = bh.origScale * thesetup.GetExpansionMultiplier();
-        
+            float expansionMultipler = thesetup.GetExpansionMultiplier();
+            float expansionDuration = thesetup.GetExpansionDuration();
+            
+            Vector3 targetScale = bh.origScale * expansionMultipler;
             chosenBoxes.Add(bh);
         
-            StartCoroutine(AnimateScale(imageRenderer.transform, imageRenderer.transform.localScale - new Vector3(0.5f,0.5f,0.5f), targetScale - new Vector3(0.25f,0.25f,0.25f), thesetup.GetExpansionDuration()));
+            AnimateScaleTween(imageRenderer.transform, targetScale, expansionDuration);
 
             imageRenderer.sortingOrder = 2;
         
@@ -44,13 +53,14 @@ public class MemoryGameLogic : MonoBehaviour
         }
     }
 
+    private static readonly WaitForSeconds oneSecondDelay = new WaitForSeconds(1f);
     private IEnumerator DelayedCheckMatch()
     {
-        yield return new WaitForSeconds(1f);
+        yield return oneSecondDelay;
         CheckMatch();
     }
 
-    private IEnumerator AnimateScale(Transform target, Vector3 startScale, Vector3 endScale, float duration)
+    /*private IEnumerator AnimateScale(Transform target, Vector3 startScale, Vector3 endScale, float duration)
     {
         //Logic for animating the image
         float time = 0f;
@@ -61,13 +71,16 @@ public class MemoryGameLogic : MonoBehaviour
             yield return null;
         }
         target.localScale = endScale;
-    }
+    }*/
+    
 
     public void CheckMatch()
     {
         //Logic for checking to see if you have a match
         BoxHandler bxhndlr1 = chosenBoxes[0];
         BoxHandler bxhndlr2 = chosenBoxes[1];
+        
+        float expansionDuration = thesetup.GetExpansionDuration();
         
         SpriteRenderer firstRenderer = bxhndlr1.GetImageRenderer();
         SpriteRenderer secondRenderer = bxhndlr2.GetImageRenderer();
@@ -86,7 +99,8 @@ public class MemoryGameLogic : MonoBehaviour
             foreach (BoxHandler bh in chosenBoxes)
             {
                 Transform imageTransform = bh.GetChildTransform();
-                StartCoroutine(AnimateScale(imageTransform, imageTransform.localScale, bh.origScale, thesetup.GetContractionDuration()));
+                //StartCoroutine(AnimateScale(imageTransform, imageTransform.localScale, bh.origScale, thesetup.GetContractionDuration()));
+                AnimateScaleTween(imageTransform, bh.origScale,expansionDuration);
                 bh.GetImageRenderer().sortingOrder = -2;
                 bh.ResetAvaliability();
             }
