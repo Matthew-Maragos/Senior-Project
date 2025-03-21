@@ -31,7 +31,7 @@ public class MemoryGameLogic : MonoBehaviour
         
             chosenBoxes.Add(bh);
         
-            StartCoroutine(AnimateScale(imageRenderer.transform, imageRenderer.transform.localScale, targetScale, thesetup.GetExpansionDuration()));
+            StartCoroutine(AnimateScale(imageRenderer.transform, imageRenderer.transform.localScale - new Vector3(0.5f,0.5f,0.5f), targetScale - new Vector3(0.25f,0.25f,0.25f), thesetup.GetExpansionDuration()));
 
             imageRenderer.sortingOrder = 2;
         

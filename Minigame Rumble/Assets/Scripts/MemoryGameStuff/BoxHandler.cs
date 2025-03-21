@@ -13,7 +13,9 @@ public class BoxHandler : MonoBehaviour
     private Transform _childTransform;
     public Vector3 origScale;
 
-    void Awake()
+    
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
     {
         //Cache the image component if it exists
         if (transform.childCount > 0)
@@ -22,10 +24,6 @@ public class BoxHandler : MonoBehaviour
             _childTransform = transform.GetChild(0);
             origScale = _cachedImage.transform.localScale;
         }
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
         isAvaliable = true;
         if (thelogic == null)
         {
