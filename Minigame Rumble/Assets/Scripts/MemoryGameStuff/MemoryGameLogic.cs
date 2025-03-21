@@ -48,32 +48,24 @@ public class MemoryGameLogic : MonoBehaviour
             {
                 //After a second wait, check for a match
                 canClick = false;
-                StartCoroutine(DelayedCheckMatch());
+                Debug.Log("Delayed Checking Match");
+                DelayedCheckMatch();
             }
         }
     }
 
-    private static readonly WaitForSeconds oneSecondDelay = new WaitForSeconds(1f);
+    /*private static readonly WaitForSeconds oneSecondDelay = new WaitForSeconds(1f);
     private IEnumerator DelayedCheckMatch()
     {
         yield return oneSecondDelay;
         CheckMatch();
-    }
-
-    /*private IEnumerator AnimateScale(Transform target, Vector3 startScale, Vector3 endScale, float duration)
-    {
-        //Logic for animating the image
-        float time = 0f;
-        while (time < duration)
-        {
-            target.localScale = Vector3.Lerp(startScale, endScale, time / duration);
-            time += Time.deltaTime;
-            yield return null;
-        }
-        target.localScale = endScale;
     }*/
-    
 
+    private void DelayedCheckMatch()
+    {
+        DOVirtual.DelayedCall(0.2f, CheckMatch);
+    }
+    
     public void CheckMatch()
     {
         //Logic for checking to see if you have a match
@@ -89,7 +81,8 @@ public class MemoryGameLogic : MonoBehaviour
         {
             //You found a match
             numMatches++;
-            CheckForWin();
+            //CheckForWin();
+            DOVirtual.DelayedCall(1f, CheckForWin);
             canClick = true;
         }
         else
