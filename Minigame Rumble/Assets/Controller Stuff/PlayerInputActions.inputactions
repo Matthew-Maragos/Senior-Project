@@ -21,8 +21,8 @@
                     "id": "88f672ae-1e4a-4ffe-bf31-d51ad5a624ab",
                     "path": "<Joystick>/stick/left",
                     "interactions": "",
-                    "processors": "",
-                    "groups": "",
+                    "processors": "StickDeadzone",
+                    "groups": ";Controller1;Controller2",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false

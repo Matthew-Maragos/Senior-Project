@@ -36,7 +36,7 @@ public class BoxHandler : MonoBehaviour
     
     //Public getter to return the child transform
     public Transform GetChildTransform() => _childTransform;
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
         if (isAvaliable)
         {

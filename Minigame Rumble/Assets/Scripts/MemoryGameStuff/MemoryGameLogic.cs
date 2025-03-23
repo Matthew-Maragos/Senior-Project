@@ -49,58 +49,56 @@ public class MemoryGameLogic : MonoBehaviour
                 //After a second wait, check for a match
                 canClick = false;
                 Debug.Log("Delayed Checking Match");
-                DelayedCheckMatch();
+                CheckMatch();
             }
         }
     }
-
-    /*private static readonly WaitForSeconds oneSecondDelay = new WaitForSeconds(1f);
-    private IEnumerator DelayedCheckMatch()
-    {
-        yield return oneSecondDelay;
-        CheckMatch();
-    }*/
-
-    private void DelayedCheckMatch()
-    {
-        DOVirtual.DelayedCall(0.2f, CheckMatch);
-    }
-    
     public void CheckMatch()
     {
-        //Logic for checking to see if you have a match
         BoxHandler bxhndlr1 = chosenBoxes[0];
         BoxHandler bxhndlr2 = chosenBoxes[1];
-        
+
         float expansionDuration = thesetup.GetExpansionDuration();
-        
+
         SpriteRenderer firstRenderer = bxhndlr1.GetImageRenderer();
         SpriteRenderer secondRenderer = bxhndlr2.GetImageRenderer();
 
         if (firstRenderer.sprite == secondRenderer.sprite)
         {
-            //You found a match
+            // Found a match
             numMatches++;
-            //CheckForWin();
             DOVirtual.DelayedCall(1f, CheckForWin);
             canClick = true;
         }
         else
         {
-            //Not a match
-            //Logic for shrinking the image back to its original position
-            foreach (BoxHandler bh in chosenBoxes)
-            {
-                Transform imageTransform = bh.GetChildTransform();
-                //StartCoroutine(AnimateScale(imageTransform, imageTransform.localScale, bh.origScale, thesetup.GetContractionDuration()));
-                AnimateScaleTween(imageTransform, bh.origScale,expansionDuration);
-                bh.GetImageRenderer().sortingOrder = -2;
-                bh.ResetAvaliability();
-            }
+            // Not a match: shrink back images and reset sorting order
+            StartCoroutine(ResetUnmatchedCards(bxhndlr1, bxhndlr2, expansionDuration));
         }
+    }
+
+    private IEnumerator ResetUnmatchedCards(BoxHandler box1, BoxHandler box2, float duration)
+    {
+        yield return new WaitForSeconds(1f); // Wait before shrinking
+
+        // Shrink the images back to their original size
+        AnimateScaleTween(box1.GetChildTransform(), box1.origScale, duration);
+        AnimateScaleTween(box2.GetChildTransform(), box2.origScale, duration);
+
+        // Reset sorting order so they go back behind the card
+        box1.GetImageRenderer().sortingOrder = -2;
+        box2.GetImageRenderer().sortingOrder = -2;
+
+        // Reset availability
+        box1.ResetAvaliability();
+        box2.ResetAvaliability();
+
+        // Clear the chosen boxes list *after* animations complete
+        yield return new WaitForSeconds(duration);
         chosenBoxes.Clear();
         canClick = true;
     }
+
     public void CheckForWin()
     {
         int numBoxes = thesetup.GetNumBoxes();

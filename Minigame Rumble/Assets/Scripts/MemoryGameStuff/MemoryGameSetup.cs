@@ -23,16 +23,43 @@ public class MemoryGameSetup : MonoBehaviour
     private float contractionDuration = 0.5f;
     
     private int numBoxes = 20;
+    // Going to keep track of the boxes with this list
+    private List<GameObject> spawnedBoxes = new List<GameObject>();
+    private int index = 0;
+    private float moveCooldown = 0.2f; // Adjust this for slower movement
+    private float nextMoveTime = 0f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     { 
         SpawnBoxes();
+        HighlightBoxes(index);
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Controller input
+        
+        if (Time.time >= nextMoveTime)
+        {
+            float moveX = Input.GetAxisRaw("Horizontal");
+            float moveY = Input.GetAxisRaw("Vertical");
+            //Giving a delay on scrolling through the choices with controller left stick movements
+            if (moveX > 0.5f) { MoveSelection(1); nextMoveTime = Time.time + moveCooldown; }
+            if (moveX < -0.5f) { MoveSelection(-1); nextMoveTime = Time.time + moveCooldown; }
+            if (moveY > 0.5f) { MoveSelection(-colLength); nextMoveTime = Time.time + moveCooldown; }
+            if (moveY < -0.5f) { MoveSelection(colLength); nextMoveTime = Time.time + moveCooldown; }
+        }
+
+        if (Input.GetButtonDown("Submit"))
+        {
+            // Pressing A on Controller will select the selected box
+                if (spawnedBoxes[index] != null)
+                {
+                    spawnedBoxes[index].GetComponent<BoxHandler>().OnMouseDown(); // Call the same function as clicking
+                }
+        }
         
     }
 
@@ -42,6 +69,7 @@ public class MemoryGameSetup : MonoBehaviour
         for (int i = 0; i < numBoxes; i++)
         {
             GameObject newBox = ObjectPooler.Instance.GetPooledObject();
+            spawnedBoxes.Add(newBox);
             if (newBox == null)
             {
                 Debug.LogWarning("No pooled object avaliable");
@@ -107,5 +135,24 @@ public class MemoryGameSetup : MonoBehaviour
     public float GetContractionDuration()
     {
         return contractionDuration;
+    }
+
+    void HighlightBoxes(int index)
+    {
+        for (int i = 0; i < spawnedBoxes.Count; i++)
+        {
+            // Example: Change color to highlight selected card
+            Renderer rend = spawnedBoxes[i].GetComponent<Renderer>();
+            rend.material.color = (i == index) ? Color.green : Color.white;
+        }
+    }
+    void MoveSelection(int direction)
+    {
+        int newIndex = index + direction;
+        if (newIndex >= 0 && newIndex < spawnedBoxes.Count) // Ensure it's within bounds
+        {
+            index = newIndex;
+            HighlightBoxes(index);
+        }
     }
 }
