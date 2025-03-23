@@ -12,6 +12,7 @@ public class MemoryGameLogic : MonoBehaviour
     public List<BoxHandler> chosenBoxes = new List<BoxHandler>();
     private int numMatches;
     private bool canClick;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -75,6 +76,7 @@ public class MemoryGameLogic : MonoBehaviour
             // Not a match: shrink back images and reset sorting order
             StartCoroutine(ResetUnmatchedCards(bxhndlr1, bxhndlr2, expansionDuration));
         }
+        GameManager.Instance.EndTurn();
     }
 
     private IEnumerator ResetUnmatchedCards(BoxHandler box1, BoxHandler box2, float duration)
