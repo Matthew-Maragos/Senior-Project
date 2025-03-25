@@ -13,7 +13,7 @@ public class MemoryGameSetup : MonoBehaviour
     
     public Sprite[] numberSprites;
     public List<Sprite> imageSprites;
-    [SerializeField] private Vector2 _initialPositions = new Vector2(-8, 4);
+    [SerializeField] private Vector2 _initialPositions;
     private int colLength = 5;
 
     //X and Y spacing for the boxes

@@ -6,7 +6,7 @@ public class ObjectPooler : MonoBehaviour
     public GameObject boxPrefab;
     public int poolSize = 20;
     private List<GameObject> pool;
-
+    private Vector3 scaleFactor = new Vector3(1.5f, 2f,1f);
     private void Awake()
     {
         Instance = this;
@@ -16,6 +16,7 @@ public class ObjectPooler : MonoBehaviour
         for (int i = 0; i < poolSize; i++)
         {
             GameObject box = Instantiate(boxPrefab);
+            box.transform.localScale = scaleFactor;
             box.SetActive(false);
             pool.Add(box);
         }
