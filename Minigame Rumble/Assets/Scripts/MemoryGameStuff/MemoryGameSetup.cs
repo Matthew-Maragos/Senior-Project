@@ -211,7 +211,7 @@ public class MemoryGameSetup : MonoBehaviour
     public void UpdateUI()
     {
         int currentPlayer = GameManager.Instance.GetCurrentPlayer();
-        int currentPlayerScore = playerScores[currentPlayer]; // Get the current player's score
+        int currentPlayerScore = GameManager.Instance.getPlayerScore(currentPlayer); // Get the current player's score
         turnText.text = $"Player {currentPlayer + 1}'s Turn - Score: {currentPlayerScore}";
     }
 

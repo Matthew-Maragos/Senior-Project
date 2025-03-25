@@ -67,16 +67,20 @@ public class MemoryGameLogic : MonoBehaviour
         if (firstRenderer.sprite == secondRenderer.sprite)
         {
             // Found a match
+            Debug.Log("Match");
             numMatches++;
-            DOVirtual.DelayedCall(1f, CheckForWin);
             canClick = true;
+            chosenBoxes.Clear();
+            GameManager.Instance.AddPointToCurrentPlayer();
+            GameManager.Instance.EndTurn();
         }
         else
         {
             // Not a match: shrink back images and reset sorting order
             StartCoroutine(ResetUnmatchedCards(bxhndlr1, bxhndlr2, expansionDuration));
+            GameManager.Instance.EndTurn();
         }
-        GameManager.Instance.EndTurn();
+        
     }
 
     private IEnumerator ResetUnmatchedCards(BoxHandler box1, BoxHandler box2, float duration)
@@ -91,6 +95,7 @@ public class MemoryGameLogic : MonoBehaviour
         box1.GetImageRenderer().sortingOrder = -2;
         box2.GetImageRenderer().sortingOrder = -2;
 
+        Debug.Log("Reset");
         // Reset availability
         box1.ResetAvaliability();
         box2.ResetAvaliability();
