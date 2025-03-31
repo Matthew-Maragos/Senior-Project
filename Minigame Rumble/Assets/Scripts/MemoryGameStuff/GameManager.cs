@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     // Keeping track of players, the current player and the scores
-    public int numPlayers = 2; 
+    public int numPlayers; 
     private int currentPlayer = 0;
     private int[] playerScores;
 
@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        numPlayers = MainGameManager.playerCount;
         playerScores = new int[numPlayers];
     }
 

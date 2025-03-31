@@ -66,7 +66,7 @@ public class MemoryGameSetup : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    //Update is called once per frame
     void Update()
     {
         int activePlayer = GameManager.Instance.GetCurrentPlayer();
@@ -81,26 +81,26 @@ public class MemoryGameSetup : MonoBehaviour
                 // Moving Right
                 moveRight();
             }
-
+    
             if (moveX < -0.5f)
             {
                 // Moving Left
                 moveLeft();
             }
-
+    
             if (moveY > 0.5f)
             {
                 // Moving Up
                 moveUp();
             }
-
+    
             if (moveY < -0.5f)
             {
                 // Moving Down
                 moveDown();
             }
         }
-
+    
         if (Input.GetButtonDown("Submit_P" + (activePlayer + 1)))
         {
             if (spawnedBoxes[index] != null)

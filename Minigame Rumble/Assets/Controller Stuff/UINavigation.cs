@@ -136,7 +136,7 @@ public partial class @UINavigation: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c9dbeca4-5178-431f-af10-5ee46f6dfb48"",
-                    ""path"": ""<HID::Microsoft Matt's Elite Controller>/stick"",
+                    ""path"": ""<Joystick>/stick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

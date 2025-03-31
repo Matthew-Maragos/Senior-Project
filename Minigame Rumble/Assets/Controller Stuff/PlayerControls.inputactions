@@ -1,23 +1,23 @@
 {
-    "name": "UINavigation",
+    "name": "PlayerControls",
     "maps": [
         {
-            "name": "UI",
-            "id": "90b715fe-41ee-4909-a5a8-3041c64bbabb",
+            "name": "Card Selection",
+            "id": "819aae4e-f216-4b25-8eac-8abd4e62302f",
             "actions": [
                 {
                     "name": "Submit",
                     "type": "Button",
-                    "id": "e853669a-4305-4a52-9f8f-cdb463fa5d68",
+                    "id": "8e32c97e-8fd8-43d7-8e48-fb6e69088ae7",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
-                    "name": "Navigate",
+                    "name": "Move",
                     "type": "Value",
-                    "id": "171a88ab-d13b-4e29-b652-737c88e7271d",
+                    "id": "177ba70c-1c2c-4e47-8b7c-e121ecdfb1fb",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -27,8 +27,8 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "6fb61511-9add-4c37-b15d-e63c5b5e8de9",
-                    "path": "<XInputController>/buttonSouth",
+                    "id": "b5f5a1fa-b46c-4dc4-916a-a3d1961b543e",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -38,23 +38,12 @@
                 },
                 {
                     "name": "",
-                    "id": "d03d0e6f-031a-43c2-a0c9-76247a766a2b",
-                    "path": "<Keyboard>/enter",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Submit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c9dbeca4-5178-431f-af10-5ee46f6dfb48",
+                    "id": "caa148c9-512d-4663-9e87-bf7c105db183",
                     "path": "<Joystick>/stick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Navigate",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
