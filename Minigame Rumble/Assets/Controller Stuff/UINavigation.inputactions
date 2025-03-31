@@ -1,0 +1,65 @@
+{
+    "name": "UINavigation",
+    "maps": [
+        {
+            "name": "UI",
+            "id": "90b715fe-41ee-4909-a5a8-3041c64bbabb",
+            "actions": [
+                {
+                    "name": "Submit",
+                    "type": "Button",
+                    "id": "e853669a-4305-4a52-9f8f-cdb463fa5d68",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Navigate",
+                    "type": "Value",
+                    "id": "171a88ab-d13b-4e29-b652-737c88e7271d",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6fb61511-9add-4c37-b15d-e63c5b5e8de9",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d03d0e6f-031a-43c2-a0c9-76247a766a2b",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c9dbeca4-5178-431f-af10-5ee46f6dfb48",
+                    "path": "<HID::Microsoft Matt's Elite Controller>/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
