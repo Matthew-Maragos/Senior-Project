@@ -528,8 +528,8 @@ MonoBehaviour:
   - {fileID: -3066867260099323197, guid: 0842ff4aa10034d14adf0776e6f1d6cc, type: 3}
   _initialPositions: {x: -5.8, y: 2.75}
   _spacing: {x: 3, y: 2}
-  _minAndMaxWidthsAndHeights: {x: 0.5, y: 0.5, z: 1, w: 1}
-  expansionMultiplier: 1.25
+  _minAndMaxWidthsAndHeights: {x: 0.5, y: 0.5, z: 0.75, w: 0.75}
+  expansionMultiplier: 1.15
   numberOfPlayers: 2
   playerIndex: 0
   turnText: {fileID: 527685173}

@@ -35,14 +35,12 @@ public class GameManager : MonoBehaviour
     public void EndTurn()
     {
         // Move to next player
-        Debug.Log("Turn Ended");
         currentPlayer = (currentPlayer + 1) % numPlayers;
         MemoryGameSetup.Instance.UpdateUI();
     }
 
     public void AddPointToCurrentPlayer()
     {
-        Debug.Log("Add Point");
         playerScores[currentPlayer]++;
     }
 

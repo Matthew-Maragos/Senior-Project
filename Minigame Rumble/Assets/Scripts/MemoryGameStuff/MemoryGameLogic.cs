@@ -49,7 +49,6 @@ public class MemoryGameLogic : MonoBehaviour
             {
                 //After a second wait, check for a match
                 canClick = false;
-                Debug.Log("Delayed Checking Match");
                 CheckMatch();
             }
         }
@@ -67,12 +66,12 @@ public class MemoryGameLogic : MonoBehaviour
         if (firstRenderer.sprite == secondRenderer.sprite)
         {
             // Found a match
-            Debug.Log("Match");
             numMatches++;
             canClick = true;
             chosenBoxes.Clear();
             GameManager.Instance.AddPointToCurrentPlayer();
             GameManager.Instance.EndTurn();
+            CheckForWin();
         }
         else
         {
@@ -94,8 +93,7 @@ public class MemoryGameLogic : MonoBehaviour
         // Reset sorting order so they go back behind the card
         box1.GetImageRenderer().sortingOrder = -2;
         box2.GetImageRenderer().sortingOrder = -2;
-
-        Debug.Log("Reset");
+        
         // Reset availability
         box1.ResetAvaliability();
         box2.ResetAvaliability();

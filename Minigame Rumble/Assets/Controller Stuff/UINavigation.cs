@@ -114,7 +114,7 @@ public partial class @UINavigation: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6fb61511-9add-4c37-b15d-e63c5b5e8de9"",
-                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -136,7 +136,18 @@ public partial class @UINavigation: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c9dbeca4-5178-431f-af10-5ee46f6dfb48"",
-                    ""path"": ""<Joystick>/stick"",
+                    ""path"": ""<Gamepad>/dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b26ce801-ee1f-48c6-a042-410d651b2c2e"",
+                    ""path"": ""<XInputController>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
