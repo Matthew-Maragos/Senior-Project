@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
@@ -209,10 +210,27 @@ public class MemoryGameSetup : MonoBehaviour
     }
 
     public void UpdateUI()
-    {
+    { 
+        // Get the current player's score
+        // Get current player's index
+        StringBuilder turnTextBuilder = new StringBuilder();
         int currentPlayer = GameManager.Instance.GetCurrentPlayer();
-        int currentPlayerScore = GameManager.Instance.getPlayerScore(currentPlayer); // Get the current player's score
-        turnText.text = $"Player {currentPlayer + 1}'s Turn - Score: {currentPlayerScore}";
+
+        for (int i = 0; i < numberOfPlayers; i++) 
+        {
+            int playerScore = GameManager.Instance.getPlayerScore(i); // Ensure it's fetching per player
+
+            if (i == currentPlayer)
+            {
+                turnTextBuilder.Append($"<b><color=#32CD32>Player {i + 1}: {playerScore}</color></b>  ");
+            }
+            else
+            {
+                turnTextBuilder.Append($"Player {i + 1}: {playerScore}  ");
+            }
+        }
+
+        turnText.text = turnTextBuilder.ToString();
     }
 
     public void moveLeft()
@@ -235,6 +253,7 @@ public class MemoryGameSetup : MonoBehaviour
         MoveSelection(-colLength);
         nextMoveTime = Time.time + moveCooldown;
     }
+
 }
 
 
