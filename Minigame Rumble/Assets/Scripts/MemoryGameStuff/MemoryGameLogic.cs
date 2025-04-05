@@ -19,6 +19,8 @@ public class MemoryGameLogic : MonoBehaviour
         canClick = true;
         numMatches = 0;
         thesetup = FindAnyObjectByType<MemoryGameSetup>();
+        sceneNavigator = FindAnyObjectByType<ScreenController>();
+        
     }
     
     public void AnimateScaleTween(Transform target, Vector3 endScale, float duration)
@@ -109,7 +111,11 @@ public class MemoryGameLogic : MonoBehaviour
         int numBoxes = thesetup.GetNumBoxes();
         if (numMatches == numBoxes/2)
         {
-            //Placeholder for moving to the next scene when the memory game is finished
+            int winner = GameManager.Instance.GetWinningPlayerIndex();
+            GameManager.Instance.SetWinner(winner);
+            Debug.Log(winner == -1 ? "It's a tie!" : $"Player {winner + 1} wins!");
+
+            DOTween.KillAll();
             sceneNavigator.LoadScene(7);
         }
     }

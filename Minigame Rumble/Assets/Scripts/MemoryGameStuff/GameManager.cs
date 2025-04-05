@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private int currentPlayer = 0;
     private int[] playerScores;
     private int[] players;
+    private int winnerIndex = -1;
 
     public TMP_Text turnText;
     private void Awake()
@@ -53,16 +54,36 @@ public class GameManager : MonoBehaviour
         return playerScores[playerIndex];
     }
 
-    public int getPlayer(int playerIndex)
+    public int GetWinningPlayerIndex()
     {
-        if (playerIndex >= 0 && playerIndex < players.Length)
+        int highest = -1;
+        int maxScore = -1;
+        bool tie = false;
+
+        for (int i = 0; i < numPlayers; i++)
         {
-            return players[playerIndex];
+            if (playerScores[i] > maxScore)
+            {
+                highest = i;
+                maxScore = playerScores[i];
+                tie = false;
+            }
+            else if (playerScores[i] == maxScore)
+            {
+                tie = true;
+            }
         }
-        else
-        {
-            Debug.LogWarning("Invalid player index requested: " + playerIndex);
-            return -1; // Return -1 as an invalid value
-        }
+
+        return tie ? -1 : highest;
     }
+    public void SetWinner(int index)
+    {
+        winnerIndex = index;
+    }
+
+    public int GetWinner()
+    {
+        return winnerIndex;
+    }  
+    
 }

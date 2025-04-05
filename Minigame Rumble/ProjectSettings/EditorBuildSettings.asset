@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Game Screens/Fightinggame.unity
     guid: 3cc0a44109a82ad4bba79763022f5fd8
   - enabled: 1
+    path: Assets/Scenes/Head Screens/MemoryGameResults.unity
+    guid: 4a80b337b247d4026b8a4c9bd5c18389
+  - enabled: 1
     path: Assets/Scenes/Head Screens/EndScene.unity
     guid: 82711ab492de44dbc8b9595979ed69d2
   - enabled: 1
