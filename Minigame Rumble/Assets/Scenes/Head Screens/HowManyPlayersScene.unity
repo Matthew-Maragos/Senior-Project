@@ -406,6 +406,10 @@ PrefabInstance:
       propertyPath: m_margin.z
       value: -2.955017
       objectReference: {fileID: 0}
+    - target: {fileID: 6584356117381108549, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6957663219039017232, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -729,6 +733,10 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 6584356117381108549, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7047139808986359734, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_Name
       value: 4 Player Button
@@ -1037,6 +1045,10 @@ PrefabInstance:
     - target: {fileID: 6584356117381108549, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_text
       value: 3 Players
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584356117381108549, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7047139808986359734, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_Name
@@ -1438,6 +1450,10 @@ PrefabInstance:
       value: 'Back
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584356117381108549, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7047139808986359734, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_Name

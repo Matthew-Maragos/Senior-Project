@@ -855,6 +855,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Back
       objectReference: {fileID: 0}
+    - target: {fileID: 6584356117381108549, guid: 809671611a72d471992d7d6180767258, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6957663219039017232, guid: 809671611a72d471992d7d6180767258, type: 3}
       propertyPath: m_IsActive
       value: 0
