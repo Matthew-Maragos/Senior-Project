@@ -22,7 +22,21 @@ public class MemoryGameLogic : MonoBehaviour
         sceneNavigator = FindAnyObjectByType<ScreenController>();
         
     }
-    
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            // Instantly win for testing
+            numMatches = 10;
+
+            // Give Player 1 a point (index 0)
+            GameManager.Instance.AddPointToCurrentPlayer();
+
+            // Check win conditions
+            CheckForWin();
+        }
+    }
     public void AnimateScaleTween(Transform target, Vector3 endScale, float duration)
     {
         target.DOScale(endScale, duration);
@@ -72,8 +86,8 @@ public class MemoryGameLogic : MonoBehaviour
             canClick = true;
             chosenBoxes.Clear();
             GameManager.Instance.AddPointToCurrentPlayer();
-            GameManager.Instance.EndTurn();
             CheckForWin();
+            GameManager.Instance.EndTurn();
         }
         else
         {
@@ -119,4 +133,5 @@ public class MemoryGameLogic : MonoBehaviour
             sceneNavigator.LoadScene(7);
         }
     }
+    
 }

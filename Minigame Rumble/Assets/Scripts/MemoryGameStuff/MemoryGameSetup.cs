@@ -254,6 +254,10 @@ public class MemoryGameSetup : MonoBehaviour
         nextMoveTime = Time.time + moveCooldown;
     }
 
+    public int getNumberOfPlayers()
+    {
+        return numberOfPlayers;
+    }
 }
 
 
