@@ -2,26 +2,17 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "Card Selection",
+            "name": "Jumping",
             "id": "819aae4e-f216-4b25-8eac-8abd4e62302f",
             "actions": [
                 {
-                    "name": "Submit",
+                    "name": "Jump",
                     "type": "Button",
                     "id": "8e32c97e-8fd8-43d7-8e48-fb6e69088ae7",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Move",
-                    "type": "Value",
-                    "id": "177ba70c-1c2c-4e47-8b7c-e121ecdfb1fb",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -31,24 +22,30 @@
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Submit",
+                    "groups": ";Controller1",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "caa148c9-512d-4663-9e87-bf7c105db183",
-                    "path": "<Joystick>/stick",
+                    "id": "69446f77-ba55-4eca-85a7-29f2fdf1cbf3",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Move",
+                    "groups": ";Controller1",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Controller1",
+            "bindingGroup": "Controller1",
+            "devices": []
+        }
+    ]
 }
