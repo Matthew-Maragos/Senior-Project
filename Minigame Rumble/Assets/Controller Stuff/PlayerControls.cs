@@ -108,7 +108,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Controller1"",
+                    ""groups"": "";Controller1;Controller 2"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -123,6 +123,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""26ac6dd2-73c5-4287-9aec-c70e6f286c6f"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Controller 2"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -131,6 +142,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             ""name"": ""Controller1"",
             ""bindingGroup"": ""Controller1"",
+            ""devices"": []
+        },
+        {
+            ""name"": ""Controller 2"",
+            ""bindingGroup"": ""Controller 2"",
             ""devices"": []
         }
     ]
@@ -321,6 +337,19 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             if (m_Controller1SchemeIndex == -1) m_Controller1SchemeIndex = asset.FindControlSchemeIndex("Controller1");
             return asset.controlSchemes[m_Controller1SchemeIndex];
+        }
+    }
+    private int m_Controller2SchemeIndex = -1;
+    /// <summary>
+    /// Provides access to the input control scheme.
+    /// </summary>
+    /// <seealso cref="UnityEngine.InputSystem.InputControlScheme" />
+    public InputControlScheme Controller2Scheme
+    {
+        get
+        {
+            if (m_Controller2SchemeIndex == -1) m_Controller2SchemeIndex = asset.FindControlSchemeIndex("Controller 2");
+            return asset.controlSchemes[m_Controller2SchemeIndex];
         }
     }
     /// <summary>

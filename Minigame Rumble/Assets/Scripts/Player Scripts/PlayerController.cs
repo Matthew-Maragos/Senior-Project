@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     private PlayerControls controls;
     private Rigidbody2D rb;
     private SPUM_Prefabs spum;
+    private PlayerInput playerInput;
 
     [Header("Settings")]
     public float moveSpeed = 5f;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     {
         controls = new PlayerControls();
         controls.Jumping.Jump.performed += ctx => Jump();
+        playerInput = GetComponent<PlayerInput>();
     }
 
     void OnEnable() => controls.Enable();

@@ -22,7 +22,7 @@
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Controller1",
+                    "groups": ";Controller1;Controller 2",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -37,6 +37,17 @@
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26ac6dd2-73c5-4287-9aec-c70e6f286c6f",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Controller 2",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
@@ -45,6 +56,11 @@
         {
             "name": "Controller1",
             "bindingGroup": "Controller1",
+            "devices": []
+        },
+        {
+            "name": "Controller 2",
+            "bindingGroup": "Controller 2",
             "devices": []
         }
     ]
