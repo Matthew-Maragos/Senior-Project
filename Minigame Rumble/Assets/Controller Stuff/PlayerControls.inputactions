@@ -22,7 +22,7 @@
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Controller1;Controller 2",
+                    "groups": ";Controller1;Controller 2;Default",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -33,7 +33,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Controller1",
+                    "groups": ";Controller1;Controller 2;Default",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -44,7 +44,7 @@
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Controller 2",
+                    "groups": ";Controller 2;Controller1;Default",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -54,14 +54,20 @@
     ],
     "controlSchemes": [
         {
-            "name": "Controller1",
-            "bindingGroup": "Controller1",
-            "devices": []
-        },
-        {
-            "name": "Controller 2",
-            "bindingGroup": "Controller 2",
-            "devices": []
+            "name": "Default",
+            "bindingGroup": "Default",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
         }
     ]
 }

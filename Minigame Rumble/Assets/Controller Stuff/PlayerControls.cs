@@ -108,7 +108,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Controller1;Controller 2"",
+                    ""groups"": "";Controller1;Controller 2;Default"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -119,7 +119,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Controller1"",
+                    ""groups"": "";Controller1;Controller 2;Default"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -130,7 +130,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Controller 2"",
+                    ""groups"": "";Controller 2;Controller1;Default"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -140,14 +140,20 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": [
         {
-            ""name"": ""Controller1"",
-            ""bindingGroup"": ""Controller1"",
-            ""devices"": []
-        },
-        {
-            ""name"": ""Controller 2"",
-            ""bindingGroup"": ""Controller 2"",
-            ""devices"": []
+            ""name"": ""Default"",
+            ""bindingGroup"": ""Default"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                },
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
         }
     ]
 }");
@@ -326,30 +332,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="JumpingActions" /> instance referencing this action map.
     /// </summary>
     public JumpingActions @Jumping => new JumpingActions(this);
-    private int m_Controller1SchemeIndex = -1;
+    private int m_DefaultSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
     /// </summary>
     /// <seealso cref="UnityEngine.InputSystem.InputControlScheme" />
-    public InputControlScheme Controller1Scheme
+    public InputControlScheme DefaultScheme
     {
         get
         {
-            if (m_Controller1SchemeIndex == -1) m_Controller1SchemeIndex = asset.FindControlSchemeIndex("Controller1");
-            return asset.controlSchemes[m_Controller1SchemeIndex];
-        }
-    }
-    private int m_Controller2SchemeIndex = -1;
-    /// <summary>
-    /// Provides access to the input control scheme.
-    /// </summary>
-    /// <seealso cref="UnityEngine.InputSystem.InputControlScheme" />
-    public InputControlScheme Controller2Scheme
-    {
-        get
-        {
-            if (m_Controller2SchemeIndex == -1) m_Controller2SchemeIndex = asset.FindControlSchemeIndex("Controller 2");
-            return asset.controlSchemes[m_Controller2SchemeIndex];
+            if (m_DefaultSchemeIndex == -1) m_DefaultSchemeIndex = asset.FindControlSchemeIndex("Default");
+            return asset.controlSchemes[m_DefaultSchemeIndex];
         }
     }
     /// <summary>
