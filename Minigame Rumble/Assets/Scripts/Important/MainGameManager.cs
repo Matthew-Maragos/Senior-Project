@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,13 +43,15 @@ public class MainGameManager : MonoBehaviour
         return playerCount;
     }
 
-    public void AddWinToPlayer(int playerIndex)
+    public void AddWinToPlayers()
     {
-        if (playerIndex >= 0 && playerIndex < playerWins.Length)
+        List<int> winners = GameManager.Instance.GetWinningPlayerIndices();
+        foreach (int winner in winners) 
         {
-            playerWins[playerIndex]++;
-            Debug.Log($"Player {playerIndex + 1} wins increased to {playerWins[playerIndex]}");
+            playerWins[winner]++;
+            Debug.Log($"Player {winner + 1} wins increased to {playerWins[winner]}");
         }
+        
     }
     
     public int GetPlayerWins(int playerIndex)

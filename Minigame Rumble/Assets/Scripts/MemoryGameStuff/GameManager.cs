@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -75,6 +76,28 @@ public class GameManager : MonoBehaviour
         }
 
         return tie ? -1 : highest;
+    }
+    
+    public List<int> GetWinningPlayerIndices()
+    {
+        List<int> winners = new List<int>();
+        int maxScore = -1;
+
+        for (int i = 0; i < numPlayers; i++)
+        {
+            if (playerScores[i] > maxScore)
+            {
+                maxScore = playerScores[i];
+                winners.Clear();       // Clear the previous lower scores
+                winners.Add(i);        // Add the new top player
+            }
+            else if (playerScores[i] == maxScore)
+            {
+                winners.Add(i);        // Add another player tied with top score
+            }
+        }
+
+        return winners;
     }
     public void SetWinner(int index)
     {

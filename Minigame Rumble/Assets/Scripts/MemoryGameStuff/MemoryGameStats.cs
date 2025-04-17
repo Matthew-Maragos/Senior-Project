@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using System.Text;
 using TMPro;
@@ -8,7 +10,7 @@ public class MemoryGameStats : MonoBehaviour
     public TMP_Text winText;
     public TMP_Text scoreText;
 
-    private int winner;
+    //private int winner;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
    
     void Start()
@@ -34,10 +36,21 @@ public class MemoryGameStats : MonoBehaviour
 
         if (MainGameManager.Instance != null)
         {
-            int winner = GameManager.Instance.GetWinner();
-            MainGameManager.Instance.AddWinToPlayer(winner);
+            //int winner = GameManager.Instance.GetWinner();
+            //MainGameManager.Instance.AddWinToPlayer(winner);
             
-            winText.text = $"Player {winner + 1} Wins!";
+            List<int> winners = GameManager.Instance.GetWinningPlayerIndices();
+            MainGameManager.Instance.AddWinToPlayers();
+
+// Update win text (optional: show all tied winners)
+            if (winners.Count == 1)
+            {
+                winText.text = $"Player {winners[0] + 1} Wins!";
+            }
+            else
+            {
+                winText.text = $"Players {string.Join(", ", winners.Select(w => (w + 1).ToString()))} Tie!";
+            }
             
             StringBuilder sb = new StringBuilder();
             int numPlayers = MainGameManager.Instance.GetPlayerCount();

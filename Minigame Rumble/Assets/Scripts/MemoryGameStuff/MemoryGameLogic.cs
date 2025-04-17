@@ -124,10 +124,18 @@ public class MemoryGameLogic : MonoBehaviour
     {
         int numBoxes = thesetup.GetNumBoxes();
         if (numMatches == numBoxes/2)
-        {
+        { 
             int winner = GameManager.Instance.GetWinningPlayerIndex();
-            GameManager.Instance.SetWinner(winner);
-            Debug.Log(winner == -1 ? "It's a tie!" : $"Player {winner + 1} wins!");
+            if (winner != -1)
+            {
+                GameManager.Instance.SetWinner(winner);
+            }
+            else
+            {
+                List<int> winners = GameManager.Instance.GetWinningPlayerIndices();
+                
+            }
+            
 
             DOTween.KillAll();
             sceneNavigator.LoadScene(7);
