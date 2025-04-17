@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 706271995733963948}
   - component: {fileID: 4207731249630792760}
   - component: {fileID: 421737233826902694}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CommonFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.8484393, y: -0.3252947, z: 0}
-  m_LocalScale: {x: 1.1507, y: 1.8396, z: 1}
+  m_LocalScale: {x: 1.0003234, y: 0.9946267, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
