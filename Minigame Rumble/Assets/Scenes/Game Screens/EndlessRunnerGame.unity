@@ -200,7 +200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1567720465911105452, guid: 0f2e860a0377f4a9f98fa39bbafb5dad, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.93
+      value: -2.67
       objectReference: {fileID: 0}
     - target: {fileID: 1567720465911105452, guid: 0f2e860a0377f4a9f98fa39bbafb5dad, type: 3}
       propertyPath: m_LocalRotation.w
@@ -220,7 +220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1567720465911105452, guid: 0f2e860a0377f4a9f98fa39bbafb5dad, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -4.33
+      value: 0.46
       objectReference: {fileID: 0}
     - target: {fileID: 1567720465911105452, guid: 0f2e860a0377f4a9f98fa39bbafb5dad, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -351,7 +351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7448375094655010986, guid: a77f2796fd776459c9b84d0b63c90e3a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.39000002
+      value: -2.13
       objectReference: {fileID: 0}
     - target: {fileID: 7448375094655010986, guid: a77f2796fd776459c9b84d0b63c90e3a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -371,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7448375094655010986, guid: a77f2796fd776459c9b84d0b63c90e3a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -5.65
+      value: -0.86000013
       objectReference: {fileID: 0}
     - target: {fileID: 7448375094655010986, guid: a77f2796fd776459c9b84d0b63c90e3a, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -611,6 +611,37 @@ MonoBehaviour:
   m_DefaultActionMap: Jumping
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!1 &1028017306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1028017307}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1028017307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028017306}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.35, y: -2.34, z: -0.47635296}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1187623247
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,7 +668,7 @@ Transform:
   m_GameObject: {fileID: 1187623247}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -2.3, z: -0.47376359}
+  m_LocalPosition: {x: 8.89, y: -2.39, z: -0.47376359}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -655,15 +686,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 825b888d3c6e24d0c8409a28ed3c14db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToSpawnFirst: {fileID: 4017262905165298057, guid: 5f0b73f9be848476395dc0a7cf44e0fe, type: 3}
+  levelToSpawnFirst: {fileID: 4348526970471311709, guid: 9d7c675ed88444cf8ab67156c203784b, type: 3}
   levelObjects:
   - {fileID: 4348526970471311709, guid: 9d7c675ed88444cf8ab67156c203784b, type: 3}
-  - {fileID: 4176402081800210952, guid: 17edc5bda47eb43b0aeb844dff6dd12d, type: 3}
-  - {fileID: 2318218885751665269, guid: dc5249c7d2b344853949a44d68963065, type: 3}
-  - {fileID: 2578939134188125146, guid: 82f14abab6ebc4589833eba51009812e, type: 3}
-  - {fileID: 7688158587641148851, guid: 2c9417ada912d4cd5b0faaa875657aee, type: 3}
-  - {fileID: 3330270872096698351, guid: 93ff0f441b49c479ca6e60606a21f449, type: 3}
-  - {fileID: 2954071702123498247, guid: c9a5f56afaca4406588530106ffa2ac6, type: 3}
+  - {fileID: 1005647417076297113, guid: 17edc5bda47eb43b0aeb844dff6dd12d, type: 3}
+  - {fileID: 7117399089947670961, guid: dc5249c7d2b344853949a44d68963065, type: 3}
+  - {fileID: 1538389627353517970, guid: 82f14abab6ebc4589833eba51009812e, type: 3}
   spawnY: -2.5
   spawnInterval: 3
   maxLevelsOnScreen: 5
@@ -905,3 +933,4 @@ SceneRoots:
   - {fileID: 603981646}
   - {fileID: 616750991}
   - {fileID: 1187623248}
+  - {fileID: 1028017307}
