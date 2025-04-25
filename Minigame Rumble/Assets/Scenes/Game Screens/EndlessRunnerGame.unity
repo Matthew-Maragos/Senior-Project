@@ -200,7 +200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1567720465911105452, guid: 0f2e860a0377f4a9f98fa39bbafb5dad, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.67
+      value: -0.73
       objectReference: {fileID: 0}
     - target: {fileID: 1567720465911105452, guid: 0f2e860a0377f4a9f98fa39bbafb5dad, type: 3}
       propertyPath: m_LocalRotation.w
@@ -220,7 +220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1567720465911105452, guid: 0f2e860a0377f4a9f98fa39bbafb5dad, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.46
+      value: -4.89
       objectReference: {fileID: 0}
     - target: {fileID: 1567720465911105452, guid: 0f2e860a0377f4a9f98fa39bbafb5dad, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -351,7 +351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7448375094655010986, guid: a77f2796fd776459c9b84d0b63c90e3a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.13
+      value: -0.19000006
       objectReference: {fileID: 0}
     - target: {fileID: 7448375094655010986, guid: a77f2796fd776459c9b84d0b63c90e3a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -371,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7448375094655010986, guid: a77f2796fd776459c9b84d0b63c90e3a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.86000013
+      value: -6.21
       objectReference: {fileID: 0}
     - target: {fileID: 7448375094655010986, guid: a77f2796fd776459c9b84d0b63c90e3a, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -693,7 +693,7 @@ MonoBehaviour:
   - {fileID: 7117399089947670961, guid: dc5249c7d2b344853949a44d68963065, type: 3}
   - {fileID: 1538389627353517970, guid: 82f14abab6ebc4589833eba51009812e, type: 3}
   spawnY: -2.5
-  spawnInterval: 3
+  spawnInterval: 2.5
   maxLevelsOnScreen: 5
 --- !u!1 &1211384297
 GameObject:
