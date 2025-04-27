@@ -220,6 +220,8 @@ MonoBehaviour:
   levelLength: 21
   maxSpawnedLevels: 5
   firstLevelPrefab: {fileID: 4348526970471311709, guid: 9d7c675ed88444cf8ab67156c203784b, type: 3}
+  camera: {fileID: 1211384300}
+  despawnDistance: 20
 --- !u!4 &465143838
 Transform:
   m_ObjectHideFlags: 0

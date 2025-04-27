@@ -8,6 +8,8 @@ public class LevelSpawner : MonoBehaviour
     [SerializeField] public GameObject[] levelPrefabs;
     [SerializeField] public float levelLength = 30f; // Same for all level prefabs
     [SerializeField] public int maxSpawnedLevels = 5;[SerializeField] public GameObject firstLevelPrefab;
+    [SerializeField] public Transform camera;
+    [SerializeField] public float despawnDistance = 40f;
     
     private Queue<GameObject> spawnedLevels = new Queue<GameObject>();
     private Vector3 nextSpawnPos;
@@ -33,6 +35,15 @@ public class LevelSpawner : MonoBehaviour
         if (triggerZone.position.x >= nextSpawnPos.x - levelLength)
         {
             SpawnNextSegment();
+        }
+        
+        if (spawnedLevels.Count > 0)
+        {
+            GameObject oldestLevel = spawnedLevels.Peek();
+            if (camera.position.x - oldestLevel.transform.position.x > despawnDistance)
+            {
+                Destroy(spawnedLevels.Dequeue());
+            }
         }
     }
 
