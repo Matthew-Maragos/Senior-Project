@@ -7,7 +7,11 @@ public class ScreenController : MonoBehaviour
         SceneManager.LoadScene(sceneName);
         Debug.Log("Loading Scene....!");
     }
-    
+
+    public void ResetWins()
+    {
+        MainGameManager.Instance.ResetWins();
+    }
     public void QuitGame()
     {
         Application.Quit();

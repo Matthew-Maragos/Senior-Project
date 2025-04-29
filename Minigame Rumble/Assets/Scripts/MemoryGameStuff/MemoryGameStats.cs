@@ -9,6 +9,7 @@ public class MemoryGameStats : MonoBehaviour
 {
     public TMP_Text winText;
     public TMP_Text scoreText;
+    public bool callGetWinningPlayerIndices = true; 
 
     //private int winner;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,24 +26,47 @@ public class MemoryGameStats : MonoBehaviour
         {
             Debug.LogError("WinText or ScoreText not found in scene! Make sure they are named correctly.");
         }
+        if (GameManager.Instance != null)
+        {
+            if (MainGameManager.Instance.minigameType == MainGameManager.MinigameType.MemoryGame)
+            {
+                callGetWinningPlayerIndices = true;
+            }
+            else
+            {
+                callGetWinningPlayerIndices = false;
+            }
+        }
         
         StartCoroutine(DelayedWinUpdate());
         
     }
     IEnumerator DelayedWinUpdate()
     {
-        // Wait one frame to ensure everything is initialized
         yield return null;
 
         if (MainGameManager.Instance != null)
         {
-            //int winner = GameManager.Instance.GetWinner();
-            //MainGameManager.Instance.AddWinToPlayer(winner);
-            
-            List<int> winners = GameManager.Instance.GetWinningPlayerIndices();
-            MainGameManager.Instance.AddWinToPlayers();
+            List<int> winners = new List<int>();
 
-// Update win text (optional: show all tied winners)
+            if (MainGameManager.Instance.minigameType == MainGameManager.MinigameType.MemoryGame)
+            {
+                // MEMORY GAME LOGIC (might be tie, so check winners list)
+                winners = GameManager.Instance.GetWinningPlayerIndices();
+                MainGameManager.Instance.AddWinToPlayers();
+            }
+            else
+            {
+                // ENDLESS RUNNER LOGIC (only 1 winner, no ties)
+                int winner = GameManager.Instance.GetWinner();
+                if (winner != -1)
+                {
+                    winners.Add(winner);
+                    MainGameManager.Instance.AddWinToPlayer(winner);
+                }
+            }
+
+            // Update win text
             if (winners.Count == 1)
             {
                 winText.text = $"Player {winners[0] + 1} Wins!";
@@ -51,7 +75,8 @@ public class MemoryGameStats : MonoBehaviour
             {
                 winText.text = $"Players {string.Join(", ", winners.Select(w => (w + 1).ToString()))} Tie!";
             }
-            
+
+            // Update all players' scores
             StringBuilder sb = new StringBuilder();
             int numPlayers = MainGameManager.Instance.GetPlayerCount();
 
@@ -60,15 +85,15 @@ public class MemoryGameStats : MonoBehaviour
                 int score = MainGameManager.Instance.GetPlayerWins(i);
                 sb.AppendLine($"Player {i + 1} Score: {score}");
             }
-        
+
             scoreText.text = sb.ToString();
-            
         }
         else
         {
             Debug.LogError("MainGameManager.Instance is null!");
         }
     }
+
     // Update is called once per frame
     void Update()
     {

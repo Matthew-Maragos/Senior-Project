@@ -62,8 +62,11 @@ public class MemoryGameSetup : MonoBehaviour
         // Highlighting the first box at the start
         HighlightBoxes(index);
         // How players scores are going to be monitored
+        numberOfPlayers = MainGameManager.Instance.GetPlayerCount();
         playerScores = new int[numberOfPlayers];
         UpdateUI();
+        MainGameManager.Instance.minigameType = MainGameManager.MinigameType.MemoryGame;
+
 
     }
 

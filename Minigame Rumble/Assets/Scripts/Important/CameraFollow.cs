@@ -6,6 +6,7 @@ public class CameraFollow : MonoBehaviour
     public List<Transform> players = new List<Transform>(); // List of all players
     public float cameraSpeed = 5f; // Speed at which camera moves when no one is pushing it
     private Vector3 lastCameraPosition;
+    private bool playersSpawned = false; 
 
     void Start()
     {
@@ -14,6 +15,7 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
+        if (!playersSpawned) return; // Not moving camera til players are spawned in
         // Remove any players that have been destroyed (null entries)
         players.RemoveAll(player => player == null);
 
@@ -50,5 +52,11 @@ public class CameraFollow : MonoBehaviour
             // No players left alive -> Stop moving (or you can trigger a game over here)
             Debug.Log("All players are dead. Camera stopped.");
         }
+    }
+    
+    public void SetPlayers(List<Transform> spawnedPlayers)
+    {
+        players = spawnedPlayers;
+        playersSpawned = true;
     }
 }

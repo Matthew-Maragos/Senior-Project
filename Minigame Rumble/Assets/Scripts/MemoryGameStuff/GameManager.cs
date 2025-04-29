@@ -3,7 +3,7 @@ using UnityEngine;
 using TMPro;
 
 // This script will handle the multiplayer logic
-public class GameManager : MonoBehaviour
+public partial class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private int[] playerScores;
     private int[] players;
     private int winnerIndex = -1;
+    public List<int> currentWinningPlayers = new List<int>();
 
     public TMP_Text turnText;
     private void Awake()
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        numPlayers = MainGameManager.playerCount;
+        numPlayers = MainGameManager.Instance.GetPlayerCount();
         playerScores = new int[numPlayers];
         players = new int[numPlayers];
     }
@@ -48,6 +49,11 @@ public class GameManager : MonoBehaviour
         playerScores[currentPlayer]++;
         
         MemoryGameSetup.Instance.UpdateUI();
+    }
+
+    public void AddPointToPlayer(int index)
+    {
+        playerScores[index]++;
     }
 
     public int getPlayerScore(int playerIndex)

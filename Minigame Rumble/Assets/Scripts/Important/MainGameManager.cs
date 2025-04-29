@@ -7,7 +7,6 @@ public class MainGameManager : MonoBehaviour
     public static MainGameManager Instance;
     
     public static int playerCount = 2; // Default to 2 players
-    public Button twoPlayerButton, threePlayerButton, fourPlayerButton;
 
     private int[] playerWins;
     void Awake()
@@ -24,18 +23,17 @@ public class MainGameManager : MonoBehaviour
             return;
         }
         
-        playerWins = new int[playerCount];
+        
     }
     void Start()
     {
-        
     }
 
    public void SetPlayerCount(int count)
     {
         playerCount = count;
         Debug.Log("Player count set to: " + playerCount);
-        // You can use playerCount to update your game logic accordingly
+        playerWins = new int[playerCount];
     }
 
     public int GetPlayerCount()
@@ -53,7 +51,10 @@ public class MainGameManager : MonoBehaviour
         }
         
     }
-    
+    public void AddWinToPlayer(int winner)
+    {
+        playerWins[winner]++;
+    }
     public int GetPlayerWins(int playerIndex)
     {
         if (playerIndex >= 0 && playerIndex < playerWins.Length)
@@ -70,4 +71,13 @@ public class MainGameManager : MonoBehaviour
             playerWins[i] = 0;
         }
     }
+    
+    public enum MinigameType
+    {
+        MemoryGame,
+        EndlessRunner,
+        Other
+    }
+
+    public MinigameType minigameType = MinigameType.Other;
 }
