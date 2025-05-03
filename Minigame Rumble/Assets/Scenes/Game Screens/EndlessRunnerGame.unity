@@ -366,7 +366,7 @@ MonoBehaviour:
   - {fileID: 1538389627353517970, guid: 82f14abab6ebc4589833eba51009812e, type: 3}
   - {fileID: 1005647417076297113, guid: 17edc5bda47eb43b0aeb844dff6dd12d, type: 3}
   levelLength: 21
-  maxSpawnedLevels: 5
+  maxSpawnedLevels: 10
   firstLevelPrefab: {fileID: 4348526970471311709, guid: 9d7c675ed88444cf8ab67156c203784b, type: 3}
   camera: {fileID: 1211384300}
   despawnDistance: 25
@@ -636,6 +636,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   cameraSpeed: 3
+  speedIncreaseInterval: 15
+  speedIncrement: 0.5
 --- !u!1 &1547533131
 GameObject:
   m_ObjectHideFlags: 0

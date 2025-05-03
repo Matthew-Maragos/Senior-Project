@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Box
   - Enemy
+  - New tag
+  - MusicManager
   layers:
   - Default
   - TransparentFX

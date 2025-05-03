@@ -4,15 +4,29 @@ using System.Collections.Generic;
 public class CameraFollow : MonoBehaviour
 {
     public List<Transform> players = new List<Transform>(); // List of all players
-    public float cameraSpeed = 5f; // Speed at which camera moves when no one is pushing it
+    public float cameraSpeed = 3f; // Speed at which camera moves when no one is pushing it
     private Vector3 lastCameraPosition;
     private bool playersSpawned = false; 
+    
+    private float speedIncreaseTimer = 0f;
+    public float speedIncreaseInterval = 15f; // time in seconds between speed increases
+    public float speedIncrement = 0.5f;         // how much to increase speed by each
 
     void Start()
     {
         lastCameraPosition = transform.position;
     }
 
+    void Update()
+    {
+        speedIncreaseTimer += Time.deltaTime;
+        if (speedIncreaseTimer >= speedIncreaseInterval)
+        {
+            cameraSpeed += speedIncrement;
+            speedIncreaseTimer = 0f;
+            Debug.Log($"Camera speed increased to {cameraSpeed}");
+        }
+    }
     void LateUpdate()
     {
         if (!playersSpawned) return; // Not moving camera til players are spawned in

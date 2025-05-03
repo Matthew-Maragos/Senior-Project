@@ -9,14 +9,18 @@ public class PlayerController : MonoBehaviour
     private InputAction jumpAction;
 
     [Header("Settings")]
-    public float moveSpeed = 5f;
-    public float jumpForce = 10f;
-
+    public float moveSpeed = 3f;
+    public float jumpForce = 5f;
+    
     public Transform groundCheck;
     public LayerMask groundLayer;
     public float groundCheckRadius = 0.2f;
-
+    
+    private float speedIncreaseTimer = 0f;
+    public float speedIncreaseInterval = 15f; // time in seconds between speed increases
+    
     private bool isGrounded;
+    private bool gameStarted = false;
 
     void Awake()
     {
@@ -51,18 +55,22 @@ public class PlayerController : MonoBehaviour
     {
         jumpAction?.Disable();
     }
-    void Start()
-    {
-        //rb = GetComponent<Rigidbody2D>();
-        //spum = GetComponent<SPUM_Prefabs>();
-    }
 
     void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        //isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        // Always moving to the right
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         rb.linearVelocity = new Vector2(moveSpeed, rb.linearVelocity.y);
+
+        // Handle speed increase over time
+        speedIncreaseTimer += Time.deltaTime;
+        if (speedIncreaseTimer >= speedIncreaseInterval)
+        {
+            moveSpeed += 0.5f;
+            speedIncreaseTimer = 0f;
+            Debug.Log($"{gameObject.name} speed increased to {moveSpeed}");
+        }
     }
 
     void Jump()
@@ -71,6 +79,16 @@ public class PlayerController : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
+    }
+
+    public void setMoveSpeed(float speed)
+    {
+        moveSpeed = speed;
+    }
+
+    public void setJumpForce(float force)
+    {
+        jumpForce = force;
     }
     
     

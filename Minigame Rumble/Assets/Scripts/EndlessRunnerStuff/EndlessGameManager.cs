@@ -1,20 +1,22 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.VisualScripting;
 
 public class EndlessGameManager : MonoBehaviour
 {
-    public List<GameObject> playerPrefabs = new List<GameObject>(); // Assign Player 1, Player 2, Player 3, Player 4 prefabs
-    public List<Transform> spawnPoints = new List<Transform>(); // Your spawn points
+    public List<GameObject> playerPrefabs = new List<GameObject>(); // Player prefabs (with PlayerInput attached)
+    public List<Transform> spawnPoints = new List<Transform>();     // Spawn points
     public CameraFollow cameraFollow;
     public int numberOfPlayers = 2;
     public ScreenController sceneNavigator;
 
     private List<Transform> spawnedPlayers = new List<Transform>();
-    private List<GameObject> playersGameObjects = new List<GameObject>(); // To track the GameObjects for player death
+    private List<GameObject> playersGameObjects = new List<GameObject>();
     private List<PlayerInfo> playersInfo = new List<PlayerInfo>();
 
-    private int lastPlayerOriginalIndex = -1; // To track the index of the last alive player
+    private int lastPlayerOriginalIndex = -1;
 
     private void Start()
     {
@@ -27,19 +29,37 @@ public class EndlessGameManager : MonoBehaviour
 
     void SpawnPlayers(int numberOfPlayers)
     {
-        // Clear previous players in case of respawn
         spawnedPlayers.Clear();
         playersGameObjects.Clear();
         playersInfo.Clear();
+
+        var gamepads = Gamepad.all;
+
+        if (gamepads.Count < numberOfPlayers)
+        {
+            Debug.LogError("Not enough controllers connected.");
+            return;
+        }
 
         for (int i = 0; i < numberOfPlayers; i++)
         {
             if (i < spawnPoints.Count && i < playerPrefabs.Count)
             {
-                GameObject newPlayer = Instantiate(playerPrefabs[i], spawnPoints[i].position, playerPrefabs[i].transform.rotation);
-                spawnedPlayers.Add(newPlayer.transform);
-                playersGameObjects.Add(newPlayer); // Keep track of the actual GameObject for death checking
-                playersInfo.Add(new PlayerInfo(newPlayer, i)); // Store player info with original index
+                GameObject prefab = playerPrefabs[i];
+                Gamepad device = gamepads[i];
+
+                PlayerInput playerInput = PlayerInput.Instantiate(
+                    prefab,
+                    playerIndex: i,
+                    controlScheme: null, // uses default
+                    pairWithDevice: device
+                );
+
+                playerInput.transform.position = spawnPoints[i].position;
+
+                spawnedPlayers.Add(playerInput.transform);
+                playersGameObjects.Add(playerInput.gameObject);
+                playersInfo.Add(new PlayerInfo(playerInput.gameObject, i));
             }
         }
 
@@ -56,42 +76,34 @@ public class EndlessGameManager : MonoBehaviour
 
         int alivePlayers = CountAlivePlayers();
 
-        // If only one player is alive and no point has been awarded, award them a point
         if (alivePlayers == 1 && lastPlayerOriginalIndex == -1)
         {
-            // Save the index of the last alive player
             lastPlayerOriginalIndex = GetLastAlivePlayerOriginalIndex();
             Debug.Log("Last player index: " + lastPlayerOriginalIndex);
         }
 
-        // If no players are alive, award points to the last player who was alive
         if (alivePlayers == 0 && lastPlayerOriginalIndex != -1)
         {
             AwardPointToPlayer(lastPlayerOriginalIndex);
             DOTween.KillAll();
-            sceneNavigator.LoadScene(5); // Load next scene or game over screen
+            sceneNavigator.LoadScene(5); // Load results screen or next scene
         }
     }
 
     private void AwardPointToPlayer(int playerIndex)
     {
-        // Implement awarding points logic here
         GameManager.Instance.SetWinner(playerIndex);
         Debug.Log($"Awarding point to player {playerIndex + 1}");
     }
 
     void CheckAlivePlayers()
     {
-        // Remove dead players from playersGameObjects
         playersGameObjects.RemoveAll(player => player == null);
-
-        // Remove dead players from playersInfo
         playersInfo.RemoveAll(info => info.playerObject == null);
     }
 
     int CountAlivePlayers()
     {
-        // Return the number of alive players
         return playersGameObjects.Count;
     }
 
@@ -102,9 +114,9 @@ public class EndlessGameManager : MonoBehaviour
             return playersInfo[0].originalIndex;
         }
 
-        return -1; // No alive player or still multiple players
+        return -1;
     }
-    
+
     [System.Serializable]
     public class PlayerInfo
     {
