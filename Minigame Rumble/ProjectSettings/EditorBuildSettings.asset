@@ -23,21 +23,24 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Head Screens/HowManyPlayersScene.unity
     guid: a6ef8770bc0534edfb7510079f6d9cb8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game Screens/Parkour game.unity
     guid: 12deb5f1c7d0dd74d998fbd2af19161b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game Screens/Fightinggame.unity
     guid: 3cc0a44109a82ad4bba79763022f5fd8
   - enabled: 1
     path: Assets/Scenes/Game Screens/MemoryGameResults.unity
-    guid: 4a80b337b247d4026b8a4c9bd5c18389
-  - enabled: 1
+    guid: 081a9f59024e3459b941f5964b5f891a
+  - enabled: 0
     path: Assets/Scenes/Head Screens/EndScene.unity
     guid: 82711ab492de44dbc8b9595979ed69d2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Head Screens/BothGamesScene.unity
     guid: 8b2436661cce03b48aa04f776559b324
+  - enabled: 1
+    path: Assets/Scenes/Game Screens/EndlessRunnerGame.unity
+    guid: 1de56e4558c384eaba04975dfc5da31c
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 1661def1976eb44048bc509708869fb1, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: eab04b9693187420e88ab0cc441dfce4, type: 3}

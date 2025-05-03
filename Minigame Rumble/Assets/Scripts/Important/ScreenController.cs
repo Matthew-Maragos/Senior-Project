@@ -16,4 +16,17 @@ public class ScreenController : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void LoadRandomGame()
+    {
+        int rng = Random.Range(0, 100);
+        if (rng < 50)
+        {
+            SceneManager.LoadScene(2);
+        }
+        else
+        {
+            SceneManager.LoadScene(6);
+        }
+    }
 }

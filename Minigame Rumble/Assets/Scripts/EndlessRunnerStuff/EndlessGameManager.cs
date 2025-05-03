@@ -69,7 +69,7 @@ public class EndlessGameManager : MonoBehaviour
         {
             AwardPointToPlayer(lastPlayerOriginalIndex);
             DOTween.KillAll();
-            sceneNavigator.LoadScene(7); // Load next scene or game over screen
+            sceneNavigator.LoadScene(5); // Load next scene or game over screen
         }
     }
 

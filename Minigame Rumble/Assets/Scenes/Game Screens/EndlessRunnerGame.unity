@@ -683,7 +683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1741177728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -696,9 +696,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56652f2bf18f644f0aa297d689fe2310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  twoPlayerButton: {fileID: 0}
-  threePlayerButton: {fileID: 0}
-  fourPlayerButton: {fileID: 0}
   minigameType: 0
 --- !u!4 &1741177729
 Transform:

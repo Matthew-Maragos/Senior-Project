@@ -138,7 +138,7 @@ public class MemoryGameLogic : MonoBehaviour
             
 
             DOTween.KillAll();
-            sceneNavigator.LoadScene(7);
+            sceneNavigator.LoadScene(5);
         }
     }
     
